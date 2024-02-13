@@ -18,7 +18,7 @@ fi
 if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
         export TW_DEFAULT_LANGUAGE="en"
 	export LC_ALL="C"
-        export OF_AB_DEVICE=1
+        export FOX_VIRTUAL_AB_DEVICE=1
 	export ALLOW_MISSING_DEPENDENCIES=true
 	export OF_QUICK_BACKUP_LIST="/boot;/data;"
 	export OF_USE_NEW_MAGISKBOOT=1
@@ -36,11 +36,9 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export FOX_DELETE_AROMAFM=1
 	export OF_USE_GREEN_LED=0
 	export FOX_ENABLE_APP_MANAGER=1
-	export OF_TARGET_DEVICES="chopin,chopinin,choping"
 	
 	# OTA
 	export OF_KEEP_DM_VERITY_FORCED_ENCRYPTION=1
-	export OF_SUPPORT_ALL_BLOCK_OTA_UPDATES=1
 	export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1
 
 	# screen settings
@@ -57,7 +55,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
         export FOX_USE_SPECIFIC_MAGISK_ZIP="$DEVICE_PATH/magisk/magisk.zip"
 
         # flashlight
-        export OF_FLASHLIGHT_ENABLE=1
+        export OF_FLASHLIGHT_ENABLE=0
 
         # Android 12 Encryption *temporary use until binary.xml file will implement* #
         export OF_SKIP_DECRYPTED_ADOPTED_STORAGE=1
@@ -68,8 +66,9 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export FOX_VARIANT=MIUI
 	export OF_PATCH_AVB20=1
 	export OF_MAINTAINER="Anya1014"
-	export FOX_ADVANCED_SECURITY=1
+	export OF_ADVANCED_SECURITY=1
 	export OF_USE_TWRP_SAR_DETECT=1
+	export FOX_VIRTUAL_AB_DEVICE=1
 
 	# run a process after formatting data to work-around MTP issues
 	export OF_RUN_POST_FORMAT_PROCESS=1
